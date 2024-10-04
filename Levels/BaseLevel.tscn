@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8sdj7hg6ixvt"]
+
+[ext_resource type="PackedScene" uid="uid://cgbjbynbobj1f" path="res://Assets/Ninja/Ninja.tscn" id="1_r27ts"]
+
+[node name="BaseLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Ninja" parent="." instance=ExtResource("1_r27ts")]
