@@ -10,7 +10,6 @@ func enter() -> void:
 	ninja.update_animation("attack")
 	attacking = true
 	audio_stream_player_2d.stream = sword_swoosh_sfx
-	audio_stream_player_2d.pitch_scale = randf_range(0.8, 1.2)
 	audio_stream_player_2d.play()
 	await ninja.animation_player.animation_finished
 	attacking = false
