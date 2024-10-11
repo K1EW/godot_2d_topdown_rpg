@@ -43,4 +43,14 @@ func update_animation(anim: String) -> void:
 	play_animation_with_direction(anim)
 
 func hurt_force_transition() -> void:
+	if health <= 0:
+		sprite_2d.visible = false
+		$HitBox/CollisionShape2D.disabled
+		$CollisionShape2D.disabled
+		$HitSource/CollisionShape2D.disabled
+		$SmokeFX.visible = true
+		animation_player.play("smoke")
+		await animation_player.animation_finished
+		queue_free()
+		return
 	fsm.transition_state(hurt_state)

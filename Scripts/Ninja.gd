@@ -1,9 +1,18 @@
 class_name Ninja extends CharacterBody2D
 
+signal damaged
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var fsm: FiniteStateMachine = $FiniteStateMachine
+@onready var hurt_state: Node = $FiniteStateMachine/NinjaHurt
+
 var direction: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.DOWN
+var invisible: bool = false
+
+func _ready() -> void:
+	damaged.connect(hurt_force_transition)
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
@@ -34,3 +43,6 @@ func update_animation(anim: String) -> void:
 		return
 	update_facing_direction()
 	play_animation_with_direction(anim)
+
+func hurt_force_transition() -> void:
+	fsm.transition_state(hurt_state)

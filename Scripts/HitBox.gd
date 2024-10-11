@@ -8,7 +8,5 @@ func _ready() -> void:
 
 func take_damage(area: Area2D) -> void:
 	if area is NinjaHitSource:
-		get_parent().damaged.emit()
-		#entity.health -= area.damage
-		if entity.health <= 0:
-			entity.queue_free()
+		entity.health -= area.damage
+		entity.damaged.emit()
