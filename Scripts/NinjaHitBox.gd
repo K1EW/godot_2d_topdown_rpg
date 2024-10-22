@@ -7,4 +7,5 @@ func _ready() -> void:
 
 func take_damage(area: Area2D) -> void:
 	if area is HitSource:
+		PlayerStatus.player_health -= area.damage
 		ninja.damaged.emit()

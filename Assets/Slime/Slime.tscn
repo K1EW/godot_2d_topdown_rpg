@@ -425,7 +425,6 @@ script = ExtResource("8_mtbga")
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("10_x253l")
-damage = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitSource"]
 shape = SubResource("CircleShape2D_12tub")

@@ -799,6 +799,21 @@ _data = {
 "walk_up": SubResource("Animation_i6thj")
 }
 
+[sub_resource type="Animation" id="Animation_e4rqt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/Flashed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_nylsq"]
 resource_name = "flashed"
 length = 0.5
@@ -816,21 +831,6 @@ tracks/0/keys = {
 "values": [true, false, true, false, true, false, true, false, true, false]
 }
 
-[sub_resource type="Animation" id="Animation_e4rqt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/Flashed")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c1xu6"]
 _data = {
 "RESET": SubResource("Animation_e4rqt"),
@@ -838,11 +838,11 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75mf5"]
-radius = 9.0
+radius = 7.0
 
 [node name="Ninja" type="CharacterBody2D" groups=["Ninja"]]
 position = Vector2(0, -5)
-collision_mask = 0
+collision_mask = 16
 script = ExtResource("1_x4d06")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -915,4 +915,7 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_75mf5")
+
+[node name="Camera2D" type="Camera2D" parent="."]

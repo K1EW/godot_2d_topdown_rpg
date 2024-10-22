@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bojbhw4tqsj4b"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerHUD.gd" id="1_5wiug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxkus"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6im7"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufixa"]
+bg_color = Color(0.813185, 0, 0.0914666, 1)
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+anti_aliasing = false
+
+[node name="PlayerHud" type="CanvasLayer"]
+script = ExtResource("1_5wiug")
+
+[node name="HPBarPanel" type="Panel" parent="."]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 114.0
+offset_bottom = 12.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qxkus")
+
+[node name="HPProgressBar" type="ProgressBar" parent="HPBarPanel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 109.0
+offset_bottom = 7.0
+theme_override_styles/background = SubResource("StyleBoxFlat_d6im7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ufixa")
+value = 73.66
+show_percentage = false

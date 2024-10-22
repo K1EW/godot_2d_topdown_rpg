@@ -14,6 +14,9 @@ var invisible: bool = false
 func _ready() -> void:
 	damaged.connect(hurt_force_transition)
 
+func _process(delta: float) -> void:
+	pass
+
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 
